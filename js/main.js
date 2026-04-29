@@ -142,6 +142,58 @@ function initCityModal() {
     });
 }
 
+// ===== Language Switcher =====
+function initLanguageSwitcher() {
+    const langBtns = document.querySelectorAll('.lang-btn');
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            langBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            // Here you would typically change the page content or reload with a language query parameter
+            console.log('Language switched to:', btn.dataset.lang);
+        });
+    });
+}
+
+// ===== Booking Modal =====
+function initBookingModal() {
+    const modal = document.getElementById('bookingModal');
+    if (!modal) return;
+    const closeBtn = document.getElementById('closeBooking');
+    const form = document.getElementById('bookingForm');
+    const successMsg = document.getElementById('bookingSuccess');
+    const packageNameElem = document.getElementById('bookingPackageName');
+
+    document.querySelectorAll('.btn-primary').forEach(btn => {
+        if (btn.textContent.includes('Забронировать')) {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const card = btn.closest('.price-card');
+                const packageName = card ? card.querySelector('h3').textContent : '';
+                if(packageNameElem) packageNameElem.textContent = `Пакет: ${packageName}`;
+                form.style.display = 'block';
+                successMsg.style.display = 'none';
+                form.reset();
+                modal.classList.add('active');
+            });
+        }
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+    if(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+                modal.classList.remove('active');
+            }, 3000);
+        });
+    }
+}
+
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
@@ -151,4 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScroll();
     initCityModal();
+    initLanguageSwitcher();
+    initBookingModal();
 });

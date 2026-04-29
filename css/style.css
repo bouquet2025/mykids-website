@@ -100,6 +100,19 @@ img { max-width:100%; display:block; }
 
 .header-action { display:flex; align-items:center; gap:1rem; }
 
+.lang-switcher {
+    display:flex; background:rgba(0,0,0,0.05); border-radius:20px; padding:3px;
+}
+.lang-btn {
+    background:none; border:none; padding:4px 10px; font-size:0.75rem;
+    font-weight:700; color:var(--text-muted); cursor:pointer;
+    border-radius:16px; transition:var(--transition); font-family:inherit;
+}
+.lang-btn.active {
+    background:#fff; color:var(--primary); box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+.lang-btn:hover:not(.active) { color:var(--text-main); }
+
 .nav-btn { padding:0.6rem 1.4rem !important; font-size:0.85rem !important; white-space:nowrap; }
 
 .mobile-menu-btn {
@@ -443,9 +456,23 @@ img { max-width:100%; display:block; }
 }
 @keyframes modalIn { from { opacity:0; transform:scale(0.95) translateY(10px); } to { opacity:1; transform:scale(1) translateY(0); } }
 
-.modal-close { position:absolute; top:1rem; right:1.2rem; font-size:1.5rem; cursor:pointer; color:var(--text-muted); }
+.modal-close { position:absolute; top:1rem; right:1.2rem; font-size:1.5rem; cursor:pointer; color:var(--text-muted); z-index:10; }
 .modal h2 { margin-bottom:0.5rem; }
 .modal > p { color:var(--text-muted); margin-bottom:1.5rem; }
+
+.booking-modal { max-width:400px; padding:2rem; }
+.booking-form { text-align:left; }
+.form-group { margin-bottom:1.2rem; }
+.form-group label { display:block; font-size:0.85rem; font-weight:700; margin-bottom:0.4rem; color:var(--text-main); }
+.form-group input, .form-group textarea {
+    width:100%; padding:0.8rem; border:1px solid #ddd; border-radius:var(--radius-sm);
+    font-family:inherit; font-size:0.95rem; transition:var(--transition);
+}
+.form-group input:focus, .form-group textarea:focus {
+    border-color:var(--primary); outline:none; box-shadow:0 0 0 3px rgba(233,30,99,0.1);
+}
+.booking-success { padding:2rem 0; }
+.booking-success h3 { color:var(--primary); margin-top:1rem; margin-bottom:0.5rem; }
 
 .city-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:0.8rem; }
 
