@@ -1,3 +1,220 @@
+
+const translations = {
+    "Главная": {
+        kz: "Басты бет",
+        en: "Home"
+    },
+    "Все города": {
+        kz: "Барлық қалалар",
+        en: "All cities"
+    },
+    "Контакты": {
+        kz: "Байланыс",
+        en: "Contacts"
+    },
+    "Самая крупная сеть детских парков развлечений": {
+        kz: "Ең ірі балалар ойын-сауық саябақтарының желісі",
+        en: "The largest network of children's amusement parks"
+    },
+    "Мы дарим счастье детям и комфортный отдых родителям по всему Казахстану": {
+        kz: "Біз Қазақстан бойынша балаларға бақыт және ата-аналарға жайлы демалыс сыйлаймыз",
+        en: "We give happiness to children and comfortable rest to parents all over Kazakhstan"
+    },
+    "Выбрать парк": {
+        kz: "Саябақты таңдау",
+        en: "Choose a park"
+    },
+    "Наши парки": {
+        kz: "Біздің саябақтар",
+        en: "Our parks"
+    },
+    "Выберите ближайший к вам филиал My Kids": {
+        kz: "Өзіңізге ең жақын My Kids филиалын таңдаңыз",
+        en: "Choose the My Kids branch closest to you"
+    },
+    "Открыто": {
+        kz: "Ашық",
+        en: "Open"
+    },
+    "В процессе стройки": {
+        kz: "Құрылыс барысында",
+        en: "Under construction"
+    },
+    "Скоро открытие": {
+        kz: "Жақында ашылады",
+        en: "Opening soon"
+    },
+    "Фото парка": {
+        kz: "Саябақ суреті",
+        en: "Park photo"
+    },
+    "Скоро фото": {
+        kz: "Жақында сурет",
+        en: "Photo soon"
+    },
+    "Отметить день рождения": {
+        kz: "Туған күнді атап өту",
+        en: "Celebrate Birthday"
+    },
+    "Написать в WhatsApp": {
+        kz: "WhatsApp-қа жазу",
+        en: "Write on WhatsApp"
+    },
+    "Как добраться?": {
+        kz: "Қалай жетуге болады?",
+        en: "How to get there?"
+    },
+    "Выбрать филиал": {
+        kz: "Филиалды таңдау",
+        en: "Choose branch"
+    },
+    "Узнать подробнее": {
+        kz: "Толығырақ білу",
+        en: "Learn more"
+    },
+    "О компании": {
+        kz: "Компания туралы",
+        en: "About the company"
+    },
+    "Свяжитесь с нами любым удобным способом": {
+        kz: "Бізбен кез келген ыңғайлы тәсілмен байланысыңыз",
+        en: "Contact us in any convenient way"
+    },
+    "Города": {
+        kz: "Қалалар",
+        en: "Cities"
+    },
+    "Забронировать праздник": {
+        kz: "Мерекені брондау",
+        en: "Book a holiday"
+    },
+    "ФИО": {
+        kz: "Аты-жөні",
+        en: "Full Name"
+    },
+    "Телефон": {
+        kz: "Телефон",
+        en: "Phone"
+    },
+    "Дата праздника": {
+        kz: "Мереке күні",
+        en: "Holiday date"
+    },
+    "Дополнительная информация": {
+        kz: "Қосымша ақпарат",
+        en: "Additional information"
+    },
+    "Отправить заявку": {
+        kz: "Өтінімді жіберу",
+        en: "Send request"
+    },
+    "Заявка отправлена!": {
+        kz: "Өтінім жіберілді!",
+        en: "Request sent!"
+    },
+    "Мы свяжемся с вами в ближайшее время для подтверждения бронирования.": {
+        kz: "Брондауды растау үшін жақын арада сізбен байланысамыз.",
+        en: "We will contact you shortly to confirm your booking."
+    },
+    "Пакеты на день рождения": {
+        kz: "Туған күн пакеттері",
+        en: "Birthday packages"
+    },
+    "Забронировать": {
+        kz: "Брондау",
+        en: "Book"
+    },
+    "Безлимитное посещение на 5 детей": {
+        kz: "5 балаға шектеусіз кіру",
+        en: "Unlimited visit for 5 children"
+    },
+    "Именинник бесплатно": {
+        kz: "Туған күн иесі тегін",
+        en: "Birthday child for free"
+    },
+    "Всем остальным гостям -25% скидка": {
+        kz: "Қалған қонақтарға -25% жеңілдік",
+        en: "25% discount for all other guests"
+    },
+    "Вынос торта/поздравление": {
+        kz: "Торт шығару/құттықтау",
+        en: "Cake delivery/congratulations"
+    },
+    "Аренда VIP-комнаты - 2.5 часа": {
+        kz: "VIP бөлмені жалға алу - 2.5 сағат",
+        en: "VIP room rental - 2.5 hours"
+    },
+    "Аренда VIP-комнаты - 5 часов": {
+        kz: "VIP бөлмені жалға алу - 5 сағат",
+        en: "VIP room rental - 5 hours"
+    },
+    "Любая пицца в подарок": {
+        kz: "Кез келген пицца сыйлыққа",
+        en: "Any pizza as a gift"
+    },
+    "Любые 2 пиццы в подарок": {
+        kz: "Кез келген 2 пицца сыйлыққа",
+        en: "Any 2 pizzas as a gift"
+    },
+    "Любые 3 пиццы в подарок": {
+        kz: "Кез келген 3 пицца сыйлыққа",
+        en: "Any 3 pizzas as a gift"
+    }
+};
+
+
+function translatePage(lang) {
+    if (!window.textsToTranslate) {
+        window.textsToTranslate = [];
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while (node = walker.nextNode()) {
+            const text = node.nodeValue.trim();
+            if (text.length > 0) {
+                for (let key in translations) {
+                    if (text === key || text === key.toUpperCase()) {
+                        window.textsToTranslate.push({
+                            node: node,
+                            key: key,
+                            isUpper: text === key.toUpperCase() && key !== key.toUpperCase()
+                        });
+                        break;
+                    }
+                }
+            }
+        }
+        
+        // Handle placeholders in inputs/textareas
+        document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+            const text = el.getAttribute('placeholder').trim();
+            for (let key in translations) {
+                if (text === key) {
+                    window.textsToTranslate.push({
+                        node: el,
+                        isPlaceholder: true,
+                        key: key
+                    });
+                    break;
+                }
+            }
+        });
+    }
+    
+    window.textsToTranslate.forEach(item => {
+        let newText = item.key;
+        if (lang !== 'ru' && translations[item.key] && translations[item.key][lang]) {
+            newText = translations[item.key][lang];
+        }
+        if (item.isUpper && item.key !== item.key.toUpperCase()) newText = newText.toUpperCase();
+        
+        if (item.isPlaceholder) {
+            item.node.setAttribute('placeholder', newText);
+        } else {
+            item.node.nodeValue = item.node.nodeValue.replace(item.node.nodeValue.trim(), newText);
+        }
+    });
+}
+
 // ===== Header Scroll Effect =====
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.main-header');
@@ -145,14 +362,39 @@ function initCityModal() {
 // ===== Language Switcher =====
 function initLanguageSwitcher() {
     const langBtns = document.querySelectorAll('.lang-btn');
+    
+    // Set initial language from localStorage or default to ru
+    let currentLang = localStorage.getItem('mykids_lang') || 'ru';
+    
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('mykids_lang', lang);
+        
+        // Update buttons
+        langBtns.forEach(b => {
+            if (b.dataset.lang === lang) {
+                b.classList.add('active');
+            } else {
+                b.classList.remove('active');
+            }
+        });
+        
+        // Translate page
+        translatePage(lang);
+    }
+    
     langBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            langBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            // Here you would typically change the page content or reload with a language query parameter
-            console.log('Language switched to:', btn.dataset.lang);
+            setLanguage(btn.dataset.lang);
         });
     });
+    
+    // Delay initial translation slightly to ensure DOM is ready
+    setTimeout(() => {
+        if (currentLang !== 'ru') {
+            setLanguage(currentLang);
+        }
+    }, 100);
 }
 
 // ===== Booking Modal =====

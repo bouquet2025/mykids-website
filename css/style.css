@@ -333,6 +333,43 @@ img { max-width:100%; display:block; }
     margin-bottom:1.5rem; transition:var(--transition); overflow:hidden;
     position:relative;
 }
+.photo-placeholder {
+    width:100%; height:250px; background:linear-gradient(135deg, #f5f7fa, #e4e8f0);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:var(--text-muted); font-size:0.9rem; border-radius:var(--radius-md) var(--radius-md) 0 0;
+    position:relative; overflow:hidden;
+}
+.photo-placeholder-sm { height:200px; }
+.placeholder-icon { font-size:2rem; margin-bottom:0.5rem; color:#cbd5e1; }
+
+.slideshow-container { position:relative; overflow:hidden; }
+.slideshow-container img {
+    position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity 0.8s ease-in-out;
+}
+/* When hovering, if there are multiple images, we can animate them. 
+   For now, we just ensure the first image shows if present */
+.slideshow-container img:first-of-type { opacity:1; }
+.location-card:hover .slideshow-container img:nth-of-type(1) { animation: fadeSlide 9s infinite; animation-delay: 0s; }
+.location-card:hover .slideshow-container img:nth-of-type(2) { animation: fadeSlide 9s infinite; animation-delay: 3s; }
+.location-card:hover .slideshow-container img:nth-of-type(3) { animation: fadeSlide 9s infinite; animation-delay: 6s; }
+
+@keyframes fadeSlide {
+    0% { opacity: 1; }
+    33% { opacity: 1; }
+    43% { opacity: 0; }
+    90% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.photo-placeholder:hover .placeholder-icon {
+    transform:scale(1.1); color:var(--primary); transition:var(--transition);
+}
+
+.photo-placeholder-sm {
+    aspect-ratio:4/3; margin-bottom:1rem;
+}
+
 .photo-placeholder img {
     width:100%; height:100%; object-fit:cover; position:absolute;
     top:0; left:0; border-radius:var(--radius-md);
