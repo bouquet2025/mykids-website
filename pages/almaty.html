@@ -42,6 +42,7 @@
         <div class="container">
             <div class="locations-grid">
                 <div class="location-card">
+                    <div class="photo-placeholder photo-placeholder-sm slideshow-container"><span class="placeholder-icon">📷</span><span class="placeholder-text">Фото парка</span></div>
                     <span class="tag">Открыто</span>
                     <h3>ТРЦ Alatau Plaza</h3>
                     <p>Улица Ырысты, 46/4</p>
@@ -54,6 +55,7 @@
                     </div>
                 </div>
                 <div class="location-card">
+                    <div class="photo-placeholder photo-placeholder-sm slideshow-container"><span class="placeholder-icon">📷</span><span class="placeholder-text">Фото парка</span></div>
                     <span class="tag">Открыто</span>
                     <h3>ТРЦ Atakent Mall</h3>
                     <p>улица Тимирязева, 42</p>
@@ -148,6 +150,14 @@
             <h2>Забронировать праздник</h2>
             <p id="bookingPackageName"></p>
             <form id="bookingForm" class="booking-form">
+                <div class="form-group">
+                    <label for="bookingBranch">Филиал</label>
+                    <select id="bookingBranch" required>
+                        <option value="" disabled selected>Выберите парк</option>
+                        <option value="Alatau Plaza">ТРЦ Alatau Plaza</option>
+                        <option value="Atakent Mall">ТРЦ Atakent Mall</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="bookingName">ФИО</label>
                     <input type="text" id="bookingName" placeholder="Ваше полное имя" required>

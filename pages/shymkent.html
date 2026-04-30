@@ -42,6 +42,7 @@
         <div class="container">
             <div class="locations-grid">
                 <div class="location-card">
+                    <div class="photo-placeholder photo-placeholder-sm slideshow-container"><span class="placeholder-icon">📷</span><span class="placeholder-text">Фото парка</span></div>
                     <span class="tag">Открыто</span>
                     <h3>ТРЦ Royal Plaza</h3>
                     <p>Улица Рыскулова, 8а/5</p>
@@ -54,6 +55,7 @@
                     </div>
                 </div>
                 <div class="location-card">
+                    <div class="photo-placeholder photo-placeholder-sm slideshow-container"><span class="placeholder-icon">📷</span><span class="placeholder-text">Фото парка</span></div>
                     <span class="tag">Открыто</span>
                     <h3>ТРЦ Shymkent City Mall</h3>
                     <p>Проспект Байдибек би, 362/7</p>
@@ -66,6 +68,7 @@
                     </div>
                 </div>
                 <div class="location-card">
+                    <div class="photo-placeholder photo-placeholder-sm slideshow-container"><span class="placeholder-icon">📷</span><span class="placeholder-text">Фото парка</span></div>
                     <span class="tag featured">🏆 Самый большой парк</span>
                     <h3>ТРЦ Dala Mall</h3>
                     <p>Алматинская трасса 13а</p>
@@ -160,6 +163,15 @@
             <h2>Забронировать праздник</h2>
             <p id="bookingPackageName"></p>
             <form id="bookingForm" class="booking-form">
+                <div class="form-group">
+                    <label for="bookingBranch">Филиал</label>
+                    <select id="bookingBranch" required>
+                        <option value="" disabled selected>Выберите парк</option>
+                        <option value="Royal Plaza">ТРЦ Royal Plaza</option>
+                        <option value="City Mall">ТРЦ Shymkent City Mall</option>
+                        <option value="Dala Mall">ТРЦ Dala Mall</option>
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="bookingName">ФИО</label>
                     <input type="text" id="bookingName" placeholder="Ваше полное имя" required>
