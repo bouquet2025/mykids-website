@@ -352,13 +352,17 @@ const translations = {
         "kz": "Instagram Алматы Atakent",
         "en": "Instagram Almaty Atakent"
     },
-    "Instagram Шымкент Royal": {
-        "kz": "Instagram Шымкент Royal",
-        "en": "Instagram Shymkent Royal"
+    "Instagram Шымкент Royal Plaza": {
+        "kz": "Instagram Шымкент Royal Plaza",
+        "en": "Instagram Shymkent Royal Plaza"
     },
-    "Instagram Шымкент Dala": {
-        "kz": "Instagram Шымкент Dala",
-        "en": "Instagram Shymkent Dala"
+    "Instagram Шымкент Dala Mall": {
+        "kz": "Instagram Шымкент Dala Mall",
+        "en": "Instagram Shymkent Dala Mall"
+    },
+    "Instagram Шымкент City Mall": {
+        "kz": "Instagram Шымкент City Mall",
+        "en": "Instagram Shymkent City Mall"
     },
     "Instagram Уральск": {
         "kz": "Instagram Орал",
