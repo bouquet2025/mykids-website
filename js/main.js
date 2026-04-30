@@ -36,7 +36,7 @@ const translations = {
         "kz": "Ертең олар табысты ересектер болуы үшін.",
         "en": "So they become successful adults tomorrow."
     },
-    "Крупнейшая сеть детских парков в Казахстане": {
+    "Крупнейшая сеть активити парков в Казахстане": {
         "kz": "Қазақстандағы ең ірі балалар саябақтарының желісі",
         "en": "The largest network of children's parks in Kazakhstan"
     },
@@ -707,13 +707,13 @@ function translatePage(lang) {
     if (!window.translationDictReady) {
         window.translationDictReady = true;
         window.revTranslations = {};
-        for(let key in translations) {
+        for (let key in translations) {
             window.revTranslations[key] = key;
-            if(translations[key].kz) window.revTranslations[translations[key].kz] = key;
-            if(translations[key].en) window.revTranslations[translations[key].en] = key;
+            if (translations[key].kz) window.revTranslations[translations[key].kz] = key;
+            if (translations[key].en) window.revTranslations[translations[key].en] = key;
             window.revTranslations[key.toUpperCase()] = key;
-            if(translations[key].kz) window.revTranslations[translations[key].kz.toUpperCase()] = key;
-            if(translations[key].en) window.revTranslations[translations[key].en.toUpperCase()] = key;
+            if (translations[key].kz) window.revTranslations[translations[key].kz.toUpperCase()] = key;
+            if (translations[key].en) window.revTranslations[translations[key].en.toUpperCase()] = key;
         }
     }
 
@@ -733,7 +733,7 @@ function translatePage(lang) {
             node.nodeValue = node.nodeValue.replace(text, newText);
         }
     }
-    
+
     document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
         const text = el.getAttribute('placeholder').trim();
         if (text.length > 0 && window.revTranslations[text]) {
@@ -850,7 +850,7 @@ function initMobileMenu() {
 // ===== Smooth Scroll =====
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
             e.preventDefault();
@@ -897,14 +897,14 @@ function initCityModal() {
 // ===== Language Switcher =====
 function initLanguageSwitcher() {
     const langBtns = document.querySelectorAll('.lang-btn');
-    
+
     // Set initial language from localStorage or default to ru
     let currentLang = localStorage.getItem('mykids_lang') || 'ru';
-    
+
     function setLanguage(lang) {
         currentLang = lang;
         localStorage.setItem('mykids_lang', lang);
-        
+
         // Update buttons
         langBtns.forEach(b => {
             if (b.dataset.lang === lang) {
@@ -913,17 +913,17 @@ function initLanguageSwitcher() {
                 b.classList.remove('active');
             }
         });
-        
+
         // Translate page
         translatePage(lang);
     }
-    
+
     langBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             setLanguage(btn.dataset.lang);
         });
     });
-    
+
     // Delay initial translation slightly to ensure DOM is ready
     setTimeout(() => {
         if (currentLang !== 'ru') {
@@ -947,7 +947,7 @@ function initBookingModal() {
                 e.preventDefault();
                 const card = btn.closest('.price-card');
                 const packageName = card ? card.querySelector('h3').textContent : '';
-                if(packageNameElem) packageNameElem.textContent = `Пакет: ${packageName}`;
+                if (packageNameElem) packageNameElem.textContent = `Пакет: ${packageName}`;
                 form.style.display = 'block';
                 successMsg.style.display = 'none';
                 form.reset();
@@ -959,7 +959,7 @@ function initBookingModal() {
     if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('active'));
     window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
 
-    if(form) {
+    if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             form.style.display = 'none';
