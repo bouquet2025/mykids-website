@@ -444,6 +444,7 @@ img { max-width:100%; display:block; }
 .contact-card p { color:var(--text-muted); font-size:0.88rem; line-height:1.5; }
 .contact-card a { color:var(--primary); font-weight:700; transition:var(--transition); }
 .contact-card a:hover { color:var(--primary-dark); }
+.contact-card a.btn-whatsapp { color:#fff; }
 .contact-card .contact-phone { display:block; margin-top:0.3rem; }
 
 /* ===== Footer ===== */

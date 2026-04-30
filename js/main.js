@@ -164,53 +164,48 @@ const translations = {
 
 
 function translatePage(lang) {
-    if (!window.textsToTranslate) {
-        window.textsToTranslate = [];
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-        let node;
-        while (node = walker.nextNode()) {
-            const text = node.nodeValue.trim();
-            if (text.length > 0) {
-                for (let key in translations) {
-                    if (text === key || text === key.toUpperCase()) {
-                        window.textsToTranslate.push({
-                            node: node,
-                            key: key,
-                            isUpper: text === key.toUpperCase() && key !== key.toUpperCase()
-                        });
-                        break;
-                    }
-                }
-            }
+    if (!window.translationDictReady) {
+        window.translationDictReady = true;
+        window.revTranslations = {};
+        for(let key in translations) {
+            window.revTranslations[key] = key;
+            if(translations[key].kz) window.revTranslations[translations[key].kz] = key;
+            if(translations[key].en) window.revTranslations[translations[key].en] = key;
+            window.revTranslations[key.toUpperCase()] = key;
+            if(translations[key].kz) window.revTranslations[translations[key].kz.toUpperCase()] = key;
+            if(translations[key].en) window.revTranslations[translations[key].en.toUpperCase()] = key;
         }
-        
-        // Handle placeholders in inputs/textareas
-        document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
-            const text = el.getAttribute('placeholder').trim();
-            for (let key in translations) {
-                if (text === key) {
-                    window.textsToTranslate.push({
-                        node: el,
-                        isPlaceholder: true,
-                        key: key
-                    });
-                    break;
-                }
+    }
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    let node;
+    while (node = walker.nextNode()) {
+        const text = node.nodeValue.trim();
+        if (text.length > 0 && window.revTranslations[text]) {
+            const ruKey = window.revTranslations[text];
+            let newText = ruKey;
+            if (lang !== 'ru' && translations[ruKey] && translations[ruKey][lang]) {
+                newText = translations[ruKey][lang];
             }
-        });
+            if (text === text.toUpperCase() && text !== text.toLowerCase()) {
+                newText = newText.toUpperCase();
+            }
+            node.nodeValue = node.nodeValue.replace(text, newText);
+        }
     }
     
-    window.textsToTranslate.forEach(item => {
-        let newText = item.key;
-        if (lang !== 'ru' && translations[item.key] && translations[item.key][lang]) {
-            newText = translations[item.key][lang];
-        }
-        if (item.isUpper && item.key !== item.key.toUpperCase()) newText = newText.toUpperCase();
-        
-        if (item.isPlaceholder) {
-            item.node.setAttribute('placeholder', newText);
-        } else {
-            item.node.nodeValue = item.node.nodeValue.replace(item.node.nodeValue.trim(), newText);
+    document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+        const text = el.getAttribute('placeholder').trim();
+        if (text.length > 0 && window.revTranslations[text]) {
+            const ruKey = window.revTranslations[text];
+            let newText = ruKey;
+            if (lang !== 'ru' && translations[ruKey] && translations[ruKey][lang]) {
+                newText = translations[ruKey][lang];
+            }
+            if (text === text.toUpperCase() && text !== text.toLowerCase()) {
+                newText = newText.toUpperCase();
+            }
+            el.setAttribute('placeholder', newText);
         }
     });
 }
