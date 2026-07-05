@@ -458,22 +458,37 @@ document.addEventListener("DOMContentLoaded", () => {
     restart();
   });
 
-  // ---------- Enquiry forms -> email ----------
-  // The site has no backend, so these forms don't "submit" anywhere on their own -
-  // instead we build a mailto: link from the filled fields, which opens the
-  // visitor's own mail client with the message pre-filled and addressed to us.
+  // ---------- Enquiry forms ----------
+  // The site has no backend, so these forms don't "submit" anywhere on their own.
+  // Two routes:
+  //  - If the form has a park selector (.enquiry-park-select), we open a WhatsApp
+  //    chat with the phone number of the chosen park (its option's data-phone).
+  //  - Otherwise we build a mailto: link to the address in data-email.
   document.querySelectorAll(".enquiry-form").forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const email = form.dataset.email;
-      const subject = form.dataset.subject || "Заявка с сайта MyKids";
       const lines = [];
       form.querySelectorAll("[data-field-label]").forEach((field) => {
         const value = field.value.trim();
         if (value) lines.push(`${field.dataset.fieldLabel}: ${value}`);
       });
       const body = lines.join("\n");
-      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      const parkSelect = form.querySelector(".enquiry-park-select");
+      const parkPhone = parkSelect
+        ? (parkSelect.options[parkSelect.selectedIndex]?.dataset.phone || "").replace(/\D/g, "")
+        : "";
+
+      if (parkPhone) {
+        // Route to the chosen park's WhatsApp
+        const text = `Здравствуйте! Заявка с сайта MyKids.\n${body}`;
+        window.open(`https://wa.me/${parkPhone}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+      } else {
+        // Fall back to email
+        const email = form.dataset.email || "support@mykids.kz";
+        const subject = form.dataset.subject || "Заявка с сайта MyKids";
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      }
       form.reset();
     });
   });

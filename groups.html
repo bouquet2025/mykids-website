@@ -329,8 +329,38 @@
         <h2>Или заполните форму ниже</h2>
         <p style="font-weight:400;">Опишите свою группу, и мы свяжемся с вами в WhatsApp</p>
       </div>
-      <form class="enquiry-form" data-email="support@mykids.kz" data-subject="Групповое бронирование с сайта MyKids" style="background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:30px 26px;">
+      <form class="enquiry-form" style="background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:30px 26px;">
         <div class="form-grid">
+          <div class="field field--full">
+            <label for="group-park">Выберите парк <span style="color:var(--pink);">*</span></label>
+            <select id="group-park" name="park" data-field-label="Парк" class="enquiry-park-select" required>
+              <option value="" disabled selected data-phone="">Выберите парк MyKids</option>
+              <optgroup label="Шымкент">
+                <option value="MyKids в ТРЦ Dala Mall" data-phone="77080580688">ТРЦ Dala Mall</option>
+                <option value="MyKids в ТРЦ Royal Plaza" data-phone="77080580474">ТРЦ Royal Plaza</option>
+                <option value="MyKids в ТРЦ Shymkent City Mall" data-phone="77080580208">ТРЦ Shymkent City Mall</option>
+              </optgroup>
+              <optgroup label="Алматы">
+                <option value="MyKids в ТРК Atakent Mall" data-phone="77080580476">ТРК Atakent Mall</option>
+                <option value="MyKids в ТРЦ Alatau Plaza" data-phone="77080580401">ТРЦ Alatau Plaza</option>
+              </optgroup>
+              <optgroup label="Актау">
+                <option value="MyKids в ТРК Актау" data-phone="77080580472">ТРК Актау</option>
+              </optgroup>
+              <optgroup label="Актобе">
+                <option value="MyKids в ТРЦ Dalida Plaza" data-phone="77080580780">ТРЦ Dalida Plaza</option>
+              </optgroup>
+              <optgroup label="Караганда">
+                <option value="MyKids в ТЦ KAZMART" data-phone="77080558088">ТЦ KAZMART</option>
+              </optgroup>
+              <optgroup label="Темиртау">
+                <option value="MyKids Темиртау" data-phone="77080580488">MyKids Темиртау</option>
+              </optgroup>
+              <optgroup label="Уральск">
+                <option value="MyKids в ТРК Орал" data-phone="77080580470">ТРК Орал</option>
+              </optgroup>
+            </select>
+          </div>
           <div class="field field--full">
             <label for="group-name">Ваше имя <span style="color:var(--pink);">*</span></label>
             <input type="text" id="group-name" name="name" data-field-label="Имя" required placeholder="ФИО">
@@ -367,12 +397,12 @@
           </div>
           <div class="field--full field-check">
             <input type="checkbox" id="group-consent" required>
-            <label for="group-consent" style="font-weight:400;">Пожалуйста, убедитесь, что ваш email и номер телефона указаны верно, так как мы будем использовать их для связи с вами.</label>
+            <label for="group-consent" style="font-weight:400;">Пожалуйста, убедитесь, что ваш номер телефона указан верно — мы свяжемся с вами в WhatsApp выбранного парка.</label>
           </div>
         </div>
         <button type="submit" class="btn btn--pink btn--block" style="margin-top:22px;">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#i-mail"/></svg>
-          Отправить
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><use href="#i-whatsapp"/></svg>
+          Отправить в WhatsApp
         </button>
       </form>
     </div>
@@ -430,7 +460,7 @@
 </footer>
 
 <script src="js/locations.js?v=4"></script>
-<script src="js/main.js?v=10"></script>
+<script src="js/main.js?v=12"></script>
 </body>
 </html>
 </content>
