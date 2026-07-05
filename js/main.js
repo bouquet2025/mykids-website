@@ -458,21 +458,22 @@ document.addEventListener("DOMContentLoaded", () => {
     restart();
   });
 
-  // ---------- Enquiry forms -> WhatsApp ----------
+  // ---------- Enquiry forms -> email ----------
   // The site has no backend, so these forms don't "submit" anywhere on their own -
-  // instead we build a WhatsApp message from the filled fields and open a wa.me link,
-  // consistent with how booking already works everywhere else on the site.
+  // instead we build a mailto: link from the filled fields, which opens the
+  // visitor's own mail client with the message pre-filled and addressed to us.
   document.querySelectorAll(".enquiry-form").forEach((form) => {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const phone = form.dataset.phone;
+      const email = form.dataset.email;
+      const subject = form.dataset.subject || "Заявка с сайта MyKids";
       const lines = [];
       form.querySelectorAll("[data-field-label]").forEach((field) => {
         const value = field.value.trim();
         if (value) lines.push(`${field.dataset.fieldLabel}: ${value}`);
       });
-      const text = `Здравствуйте! Заполнил(а) форму на сайте.\n${lines.join("\n")}`;
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+      const body = lines.join("\n");
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       form.reset();
     });
   });

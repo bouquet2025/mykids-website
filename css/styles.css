@@ -471,7 +471,7 @@ p { line-height: 1.65; color: var(--gray); margin: 0 0 14px; }
 }
 .faq-item.is-open .plus { transform: rotate(135deg); background: var(--pink); color: var(--white); }
 .faq-item__a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-.faq-item__a-inner { padding: 0 26px 24px 88px; }
+.faq-item__a-inner { padding: 0 26px 24px; }
 .faq-item__a-inner p { margin: 0; }
 .faq-note {
   margin-top: 10px; padding: 16px 20px; background: var(--blue-light);
